@@ -1,81 +1,109 @@
-/* Contenedor general con fondo azul */
-.page-container {
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(135deg, #0047ab, #005de6);
+.container-login {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;          /* No permitir desbordamiento horizontal */
+  padding: 30px 15px;
+  margin: 0 auto;
+
+  background: linear-gradient(135deg, #003d99, #005ce6);
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  padding: 20px;
-  margin: 0;
-  overflow-x: hidden; /* Evita scroll horizontal */
-  overflow-y: hidden; /* Previene scroll vertical no deseado */
+  overflow-x: hidden;       /* Evitar scroll horizontal */
+  overflow-y: auto;         /* Permitir scroll vertical solo si es necesario */
 }
 
-/* Caja blanca alargada y baja sin barra */
-.white-box {
-  background: white;
-
-  width: 600px;
-  max-width: 90vw;
-  height: 70px;
-
-  border-radius: 50px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0 30px;
-  gap: 32px;
-  box-sizing: border-box;
-  margin: 0 auto;
-  overflow: visible;
-}
-
-/* Grupo de botones: fila horizontal centrada */
-.button-group {
-  display: flex;
-  gap: 24px;
-  width: 100%;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  overflow: visible;
-}
-
-/* Estilo para los botones dentro de la caja */
-.button-group button {
-  flex: 1;
-  max-width: 170px;
-  height: 48px;
-
-  border: none;
-  border-radius: 32px;
-
-  font-weight: 700;
-  font-size: 16px;
+/* Título */
+.container-login h1 {
   color: white;
+  margin-bottom: 20px;
+  font-size: 32px;
+  text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
 
+/* Formulario: caja blanca con padding adecuado */
+.container-login form {
+  width: 360px;
+  max-width: 95vw;
+
+  background: white;
+  padding: 24px 28px;
+  border-radius: 12px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+}
+
+/* Campos formulario */
+.username {
+  width: 100%;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.username label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #003d99;
+}
+
+.username input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 12px 14px;
+  border: 2px solid #99c2ff;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  background-color: #f9fbff;
+  box-shadow: inset 0 1px 3px #cce0ff;
+  transition: border-color 0.3s ease;
+}
+
+.username input:focus {
+  border-color: #003d99;
+  box-shadow: 0 0 6px #003d99aa;
+}
+
+/* Mensajes de error */
+.error {
+  margin-top: 6px;
+  margin-bottom: 0;
+  color: #b00020;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Botón */
+.container-login button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
   background: linear-gradient(135deg, #005de6 0%, #0047ab 100%);
   box-shadow:
     0 8px 20px rgba(0, 92, 230, 0.45),
     inset 0 -4px 10px rgba(255, 255, 255, 0.2);
-
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.25s ease;
   user-select: none;
   white-space: nowrap;
 }
 
-.button-group button:hover {
+.container-login button:hover:not(:disabled) {
   background: linear-gradient(135deg, #0070ff 0%, #003d99 100%);
   box-shadow:
     0 15px 30px rgba(0, 113, 255, 0.7),
@@ -83,37 +111,58 @@
   transform: translateY(-3px);
 }
 
-.button-group button:active {
+.container-login button:active {
   box-shadow:
     0 5px 12px rgba(0, 92, 230, 0.5),
     inset 0 3px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(1px);
 }
 
-/* Responsive: en pantallas pequeñas pasa a columna, sin scroll */
-@media (max-width: 640px) {
-  .page-container {
-    overflow-y: auto; /* Permite scroll vertical si es necesario en móvil */
+.container-login button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Texto bajo formulario */
+.container-login form p {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #222;
+  text-align: center;
+}
+
+/* Link “Registrate” */
+.container-login form p a {
+  color: #003d99;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Link Home */
+.home-link {
+  margin-top: 24px;
+  color: white;
+  font-weight: 700;
+  text-decoration: underline;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+}
+
+/* Responsive: ajustes para móvil */
+@media (max-width: 480px) {
+  .container-login {
+    padding: 15px 10px;
   }
 
-  .white-box {
-    width: 90vw;
-    height: auto;
-    padding: 20px 15px;
-    flex-direction: column;
-    border-radius: 20px;
-    gap: 12px;
-  }
-
-  .button-group {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .button-group button {
-    flex: none;
+  .container-login form {
     width: 100%;
-    max-width: none;
-    height: 48px;
+    padding: 20px;
+  }
+
+  .container-login button {
+    font-size: 15px;
+    padding: 12px;
   }
 }
