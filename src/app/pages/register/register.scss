@@ -1,57 +1,57 @@
-/* Estilos globales para evitar scroll horizontal y vertical */
-html, body {
-  margin: 0;
-  padding: 0;
+/* Contenedor general con fondo azul */
+.page-container {
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden; /* Elimina scroll horizontal */
-  overflow-y: hidden; /* Deshabilita scroll vertical */
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-  background-color: #0047ab; /* Fondo azul general */
-}
+  background: linear-gradient(135deg, #0047ab, #005de6);
 
-/* Contenedor principal de la pantalla register */
-.home-container {
-  height: 100vh;         /* Ocupa toda la altura visible */
-  width: 100vw;          /* Ocupa todo el ancho viewport */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;       /* Padding horizontal para que no toque bordes */
+
+  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  overflow: hidden;      /* Evita scroll en general */
-  background: linear-gradient(135deg, #0047ab, #005de6); /* fondo degradado azul */
+  padding: 20px;
+  margin: 0;
+  overflow-x: hidden; /* Evita scroll horizontal */
+  overflow-y: hidden; /* Previene scroll vertical no deseado */
 }
 
-/* Caja blanca que contiene los botones */
+/* Caja blanca alargada y baja sin barra */
 .white-box {
   background: white;
-  max-width: 90vw;
+
   width: 600px;
+  max-width: 90vw;
   height: 70px;
+
   border-radius: 50px;
+
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 0 30px;
   gap: 32px;
-  overflow: hidden;
   box-sizing: border-box;
-  padding: 0 20px;
+  margin: 0 auto;
+  overflow: visible;
 }
 
-/* Grupo de botones */
+/* Grupo de botones: fila horizontal centrada */
 .button-group {
   display: flex;
-  justify-content: center;
   gap: 24px;
   width: 100%;
+  justify-content: center;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
 }
 
-/* Botones */
+/* Estilo para los botones dentro de la caja */
 .button-group button {
   flex: 1;
   max-width: 170px;
@@ -90,21 +90,14 @@ html, body {
   transform: translateY(1px);
 }
 
-/* Responsive para móviles: ajustar caja y apilar botones sin scroll */
+/* Responsive: en pantallas pequeñas pasa a columna, sin scroll */
 @media (max-width: 640px) {
-  html, body {
-    overflow-y: auto; /* Permite scroll vertical si contenido es mayor */
-    height: 100%;
-  }
-
-  .home-container {
-    padding: 10px 5px;
-    align-items: flex-start; /* para evitar que se corte contenido */
-    overflow: hidden;
+  .page-container {
+    overflow-y: auto; /* Permite scroll vertical si es necesario en móvil */
   }
 
   .white-box {
-    width: 100%;
+    width: 90vw;
     height: auto;
     padding: 20px 15px;
     flex-direction: column;
@@ -114,12 +107,13 @@ html, body {
 
   .button-group {
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
   }
 
   .button-group button {
-    max-width: 100%;
-    height: 48px;
     flex: none;
+    width: 100%;
+    max-width: none;
+    height: 48px;
   }
 }
