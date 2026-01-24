@@ -1,167 +1,125 @@
-/* Contenedor principal */
-.register-container {
-    min-height: 100vh;
+/* Estilos globales para evitar scroll horizontal y vertical */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; /* Elimina scroll horizontal */
+  overflow-y: hidden; /* Deshabilita scroll vertical */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  background-color: #0047ab; /* Fondo azul general */
+}
+
+/* Contenedor principal de la pantalla register */
+.home-container {
+  height: 100vh;         /* Ocupa toda la altura visible */
+  width: 100vw;          /* Ocupa todo el ancho viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;       /* Padding horizontal para que no toque bordes */
+  box-sizing: border-box;
+  overflow: hidden;      /* Evita scroll en general */
+  background: linear-gradient(135deg, #0047ab, #005de6); /* fondo degradado azul */
+}
+
+/* Caja blanca que contiene los botones */
+.white-box {
+  background: white;
+  max-width: 90vw;
+  width: 600px;
+  height: 70px;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+/* Grupo de botones */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Botones */
+.button-group button {
+  flex: 1;
+  max-width: 170px;
+  height: 48px;
+
+  border: none;
+  border-radius: 32px;
+
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+
+  background: linear-gradient(135deg, #005de6 0%, #0047ab 100%);
+  box-shadow:
+    0 8px 20px rgba(0, 92, 230, 0.45),
+    inset 0 -4px 10px rgba(255, 255, 255, 0.2);
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.button-group button:hover {
+  background: linear-gradient(135deg, #0070ff 0%, #003d99 100%);
+  box-shadow:
+    0 15px 30px rgba(0, 113, 255, 0.7),
+    inset 0 -6px 12px rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.button-group button:active {
+  box-shadow:
+    0 5px 12px rgba(0, 92, 230, 0.5),
+    inset 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
+}
+
+/* Responsive para móviles: ajustar caja y apilar botones sin scroll */
+@media (max-width: 640px) {
+  html, body {
+    overflow-y: auto; /* Permite scroll vertical si contenido es mayor */
+    height: 100%;
+  }
+
+  .home-container {
+    padding: 10px 5px;
+    align-items: flex-start; /* para evitar que se corte contenido */
+    overflow: hidden;
+  }
+
+  .white-box {
     width: 100%;
-    padding: 30px 15px;
-  
-    background: linear-gradient(135deg, #003d99, #005ce6);
-  
-    display: flex;
+    height: auto;
+    padding: 20px 15px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
-    font-family: Arial, Helvetica, sans-serif;
-    color: #003d99;
+    border-radius: 20px;
+    gap: 12px;
   }
-  
-  /* Título dinámico */
-  .register-container h1 {
-    color: white;
-    margin-bottom: 20px;
-    font-size: 32px;
-    text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+
+  .button-group {
+    flex-direction: column;
+    gap: 14px;
   }
-  
-  /* Formulario */
-  .register-container form {
-    width: 360px;
-    max-width: 95vw;
-  
-    background: white;
-    padding: 24px 28px;
-    border-radius: 12px;
-  
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.18);
+
+  .button-group button {
+    max-width: 100%;
+    height: 48px;
+    flex: none;
   }
-  
-  /* Grupos de inputs */
-  .form-group {
-    width: 100%;
-    margin-bottom: 16px;
-    text-align: left;
-  }
-  
-  /* Etiquetas */
-  .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 15px;
-    font-weight: 700;
-    color: #003d99;
-  }
-  
-  /* Inputs iguales y uniformes */
-  .form-group input {
-    width: 100%;
-    box-sizing: border-box;
-    height: 44px;
-  
-    padding: 12px 14px;
-  
-    border: 2px solid #99c2ff;
-    border-radius: 10px;
-  
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    box-shadow: inset 0 1px 3px #cce0ff;
-    background-color: #f9fbff;
-  }
-  
-  /* Focus del input */
-  .form-group input:focus {
-    border-color: #003d99;
-    box-shadow: 0 0 6px #003d99aa;
-  }
-  
-  /* Línea horizontal */
-  .register-container hr {
-    border: none;
-    border-top: 1px solid #c9d4ff;
-    margin: 20px 0;
-  }
-  
-  /* Nota bajo el hr */
-  .register-container .note {
-    margin-bottom: 16px;
-    font-size: 14px;
-    color: #333;
-    text-align: left;
-  }
-  
-  /* Mensaje de error */
-  .error {
-    margin-top: 6px;
-    margin-bottom: 0;
-  
-    color: #b00020;
-    font-size: 13px;
-    font-weight: 700;
-  }
-  
-  /* Botón ancho azul oscuro */
-  .register-container button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 10px;
-  
-    border: none;
-    border-radius: 10px;
-  
-    background-color: #0047ab;
-    color: white;
-  
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.25s ease;
-  }
-  
-  /* Hover */
-  .register-container button:hover:not(:disabled) {
-    background-color: #003680;
-  }
-  
-  /* Deshabilitado */
-  .register-container button:disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
-  }
-  
-  /* Texto dentro del formulario */
-  .register-container form p {
-    margin-top: 16px;
-    font-size: 14px;
-    color: #222;
-    text-align: center;
-  }
-  
-  /* Links dentro del formulario */
-  .register-container form p a {
-    color: #003d99;
-    font-weight: 700;
-    text-decoration: underline;
-  }
-  
-  /* Link cancelar */
-  .cancel-link {
-    display: block;
-    margin-top: 14px;
-    color: #003d99;
-    font-weight: 700;
-    text-decoration: underline;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  /* Link home */
-  .register-container > a {
-    margin-top: 24px;
-    color: white;
-    font-weight: 700;
-    text-decoration: underline;
-    font-size: 14px;
-    text-align: center;
-    display: block;
-  }
+}
