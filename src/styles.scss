@@ -59,3 +59,12 @@ app-root {
 
 $color-principal: rgba(119, 119, 119, 0.231);
 $color-principal-claro: rgba(119, 119, 119, 0.19);
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0047ab;
+}
