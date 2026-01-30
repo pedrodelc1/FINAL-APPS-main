@@ -50,10 +50,6 @@ export const routes: Routes = [
         canActivate: [onlyLoggedUserGuard]
     },
     {
-        path: "Configuracion",
-        component: Configuracion
-    },
-    {
         path: "**",
         component: Home
     },

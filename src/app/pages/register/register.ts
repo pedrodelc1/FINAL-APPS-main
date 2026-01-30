@@ -97,7 +97,7 @@ export class Register implements OnInit {
         result = await this.usersService.updateUser(updateData);
         
         if (result) {
-          this.router.navigate(['/configuracion']); // Volver al panel
+          this.router.navigate(['/Perfil']); // Volver al panel
         } else {
           this.errorRegister = true;
         }
